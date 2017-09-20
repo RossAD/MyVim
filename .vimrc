@@ -12,8 +12,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 " Editorconfig support
 Plug 'editorconfig/editorconfig-vim'
-" Syntastic Syntax checking
-Plug 'vim-syntastic/syntastic'
+" A.L.E. Aysnc Linting
+Plug 'w0rp/ale'
 " Tabularize alignment
 Plug 'godlygeek/tabular'
 " Gutter Git status
@@ -23,11 +23,13 @@ Plug 'shougo/neocomplete.vim'
 " Surround, [],{},"",'',etc
 Plug 'tpope/vim-surround'
 " Git wrapper
-Plug 'tpope/vim-fugitive' 
+Plug 'tpope/vim-fugitive'
 " Plugin for Auto-comlete for quotes, parenthesis, brackets
 Plug 'raimondi/delimitmate'
 " Plugin for multiple cursors
 Plug 'terryma/vim-multiple-cursors'
+" Plugin for tmux-vim intigration
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -35,7 +37,7 @@ call plug#end()
 
 " Clear any autocmd out
 " augroup myvim
-"   autocmd! 
+"   autocmd!
 " augroup
 
 if !exists("g:syntax_on")
@@ -48,11 +50,11 @@ let mapleader = ','
 set backspace=indent,eol,start
 
 " Turn on autocomplete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Don't unload buffers when abandond, keep in the backround
 set hidden
@@ -119,39 +121,10 @@ map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":ec
 " Statusline General
 set laststatus=2
 set noshowmode
-" set showtabline=2
-
-" Lightline Configuration
-" let g:lightline#bufferline#show_number  = 1
-" let g:lightline#bufferline#shorten_path = 0
-" let g:lightline#bufferline#unnamed      = '[No Name]'
-
-" let g:lightline                         = {}
-" let g:lightline.tabline                 = {'left': [['buffers']], 'right': [['close']]}
-" let g:lightline.component_expand        = {'buffers': 'lightline#bufferline#buffers'}
-" let g:lightline.component_type          = {'buffers': 'tabsel'}
-" let g:lightline.colorscheme             = 'powerline'
-" let g:lightline.active                  = {'left':[['mode', 'paste'],['gitbranch','readonly','filename','modified']]}
-" let g:lightline.component               = {'lineinfo': 'Ln %3l:%-2v'}
-" let g:lightline.component_function      = {'gitbranch': 'fugitive#head'}
-" let g:lightline.seperator               = {'left': '>', 'right': '<'}
-" let g:lightline.subseperator            = {'left': '>', 'right': '<'}
 
 " Airline Configuration
 let g:airline_powerline_fonts = 1
 let g:airline_theme='wombat'
-
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list            = 1
-let g:syntastic_check_on_open            = 1
-let g:syntastic_check_on_wq              = 0
-let g:syntastic_javascript_checkers      = ['eslint']
-let g:syntastic_enable_signs             = 1
-set signcolumn=yes
 
 " Tabularize settings
 vnoremap <silent> <Leader>cee :Tabularize /=<CR>
@@ -178,6 +151,21 @@ set scrolloff=3
 
 " Neocomplete settings
 let g:neocomplete#enable_at_startup = 1
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " Multiple cursor options
 " Called once right before you start selecting multiple cursors
@@ -193,3 +181,17 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
   endif
 endfunction
+
+" ALE settings
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_linters = {'javascript': ['eslint']} 
+
+" Vim Splits: Window nav Keymappings
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
