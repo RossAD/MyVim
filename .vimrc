@@ -1,3 +1,4 @@
+set nocompatible
 call plug#begin('~/.vim/plugs/')
 " Load Plugins here
 
@@ -9,7 +10,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Polyglot syntax highlighting
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+" More full-featured JS syntax support
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+" Better JSON support
+Plug 'elzr/vim-json'
 " Editorconfig support
 Plug 'editorconfig/editorconfig-vim'
 " A.L.E. Aysnc Linting
@@ -22,6 +29,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'shougo/neocomplete.vim'
 " Surround, [],{},"",'',etc
 Plug 'tpope/vim-surround'
+" Plugin for Auto-comlete for quotes, parenthesis, brackets
+Plug 'raimondi/delimitmate'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 " Plugin for Auto-comlete for quotes, parenthesis, brackets
@@ -30,6 +39,16 @@ Plug 'raimondi/delimitmate'
 Plug 'terryma/vim-multiple-cursors'
 " Plugin for tmux-vim intigration
 Plug 'christoomey/vim-tmux-navigator'
+" Plugin for HTML/XML tag completion 
+Plug 'docunext/closetag.vim'
+" Plugin writing enviroment / MD
+Plug 'junegunn/goyo.vim'
+" Plugin repeatability
+Plug 'tpope/vim-repeat'
+" Set of sensible defaults
+Plug 'tpope/vim-sensible'
+" Code tracking
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -40,11 +59,22 @@ call plug#end()
 "   autocmd!
 " augroup
 
+" reload files changed outside vim
+set autoread
+
 if !exists("g:syntax_on")
   syntax enable
 endif
 
 let mapleader = ','
+
+" remove the .ext~ files, but not the swapfiles
+set nobackup
+set writebackup
+set noswapfile
+
+" no lines longer than 80 cols
+autocmd FileType javascript setlocal textwidth=80 formatoptions+=t
 
 " make backspace delete sensibly
 set backspace=indent,eol,start
@@ -55,6 +85,9 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" tag completion
+:iabbrev </ </<c-x><c-o>
 
 " Don't unload buffers when abandond, keep in the backround
 set hidden
@@ -126,7 +159,20 @@ set noshowmode
 
 " Airline Configuration
 let g:airline_powerline_fonts = 1
-let g:airline_theme='wombat'
+let g:airline_theme='base16color'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
 
 " Tabularize settings
 vnoremap <silent> <Leader>cee :Tabularize /=<CR>
@@ -173,6 +219,10 @@ if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" Enable heavy omni-completion
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
 
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -212,7 +262,8 @@ endfunction
 " ALE settings
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
-let g:ale_linters = {'javascript': ['eslint']} 
+let g:ale_linters = {'javascript': ['eslint'],'jsx': ['eslint']} 
+let g:ale_linter_aliases = {'jsx': 'css'}
 
 " Vim Splits: Window nav Keymappings
 nnoremap <C-J> <C-W><C-J>
@@ -228,3 +279,12 @@ set splitright
 :set cursorline
 :hi cursorline cterm=none
 :hi cursorlinenr ctermfg=red
+
+" Tag completion options
+
+" filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
