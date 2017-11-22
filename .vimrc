@@ -49,6 +49,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 " Code tracking
 Plug 'wakatime/vim-wakatime'
+" Graphql file detection
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
