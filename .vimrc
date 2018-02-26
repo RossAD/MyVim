@@ -29,12 +29,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'shougo/neocomplete.vim'
 " Surround, [],{},"",'',etc
 Plug 'tpope/vim-surround'
-" Plugin for Auto-comlete for quotes, parenthesis, brackets
+" Plugin for Auto-complete for quotes, parenthesis, brackets
 Plug 'raimondi/delimitmate'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
-" Plugin for Auto-comlete for quotes, parenthesis, brackets
-Plug 'raimondi/delimitmate'
 " Plugin for multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 " Plugin for tmux-vim intigration
