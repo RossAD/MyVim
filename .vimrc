@@ -240,7 +240,7 @@ endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
@@ -264,6 +264,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {'javascript': ['eslint'],'jsx': ['eslint']} 
 let g:ale_linter_aliases = {'jsx': 'css'}
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
 
 " Vim Splits: Window nav Keymappings
 nnoremap <C-J> <C-W><C-J>
