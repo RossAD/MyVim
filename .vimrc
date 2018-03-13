@@ -15,6 +15,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
+" Javascript language support including Angular
+Plug 'othree/javascript-libraries-syntax.vim'
+" TypeScript Support
+Plug 'leafgarland/typescript-vim'
+Plug 'quramy/tsuquyomi'
 " Better JSON support
 Plug 'elzr/vim-json'
 " Editorconfig support
@@ -45,10 +50,20 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-repeat'
 " Set of sensible defaults
 Plug 'tpope/vim-sensible'
+" Database Plugin
+Plug 'tpope/vim-db'
 " Code tracking
 Plug 'wakatime/vim-wakatime'
 " Graphql file detection
 Plug 'jparise/vim-graphql'
+" NERDTree File Explorer
+Plug 'scrooloose/nerdtree'
+" NERDTree Git Plugin
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Vim Icons
+Plug 'ryanoasis/vim-devicons'
+" Nerdtree Icon Highlighting
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
@@ -58,6 +73,8 @@ call plug#end()
 " augroup myvim
 "   autocmd!
 " augroup
+set encoding=utf8
+set guifont=DroidSansMono_Nerd_Font:h11
 
 " reload files changed outside vim
 set autoread
@@ -291,3 +308,14 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 " Shortcut for closing tags, default is '>'
 "
 let g:closetag_shortcut = '>'
+
+" Javascript Syntax Libraries
+let g:used_javascript_libs = 'angularjs,d3'
+
+" NERDTree
+" autocmd vimenter * NERDTree
+map <C-d> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" TypeScript
+let g:tsuquyomi_completion_detail = 1
