@@ -38,6 +38,8 @@ Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
+" Bitbucket support form vim-fugitive
+Plug 'tommcdo/vim-fubitive'
 " Plugin for multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 " Plugin for tmux-vim intigration
@@ -75,6 +77,8 @@ call plug#end()
 " augroup
 set encoding=utf8
 set guifont=DroidSansMono_Nerd_Font:h11
+set spelllang=en
+set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " reload files changed outside vim
 set autoread
