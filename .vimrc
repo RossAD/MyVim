@@ -53,7 +53,7 @@ Plug 'tpope/vim-repeat'
 " Set of sensible defaults
 Plug 'tpope/vim-sensible'
 " Database Plugin
-Plug 'tpope/vim-db'
+Plug 'tpope/vim-dadbod'
 " Code tracking
 Plug 'wakatime/vim-wakatime'
 " Graphql file detection
@@ -66,6 +66,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 " Nerdtree Icon Highlighting
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Grep for vim
+Plug 'vim-scripts/grep.vim'
 
 call plug#end()
 
@@ -107,6 +109,9 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+" Python Configuration
+let python_highlight_all = 1
+
 " tag completion
 :iabbrev </ </<c-x><c-o>
 
@@ -129,7 +134,7 @@ set ignorecase
 
 filetype on
 filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 if $TMUX == ''
   set clipboard+=unnamed
@@ -302,7 +307,7 @@ set splitright
 :set number
 :set cursorline
 :hi cursorline cterm=none
-:hi cursorlinenr ctermfg=red
+:hi cursorlinenr ctermfg=green
 
 " Tag completion options
 

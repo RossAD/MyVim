@@ -1,0 +1,160 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.014  000.014: --- VIM STARTING ---
+000.103  000.089: Allocated generic buffers
+000.414  000.311: locale set
+000.418  000.004: clipboard setup
+000.425  000.007: window checked
+000.899  000.474: inits 1
+000.902  000.003: parsing arguments
+000.903  000.001: expanding arguments
+005.556  004.653: shell init
+006.374  000.818: Termcap init
+006.397  000.023: inits 2
+006.582  000.185: init highlight
+009.514  002.293  002.293: sourcing /Users/rossdavis/.vim/autoload/plug.vim
+030.031  000.126  000.126: sourcing /Users/rossdavis/.vim/plugs/vim-jsx/ftdetect/javascript.vim
+030.241  000.123  000.123: sourcing /Users/rossdavis/.vim/plugs/vim-javascript/ftdetect/javascript.vim
+030.420  000.073  000.073: sourcing /Users/rossdavis/.vim/plugs/typescript-vim/ftdetect/typescript.vim
+030.621  000.122  000.122: sourcing /Users/rossdavis/.vim/plugs/vim-json/ftdetect/json.vim
+030.887  000.072  000.072: sourcing /Users/rossdavis/.vim/plugs/vim-graphql/ftdetect/graphql.vim
+031.102  016.358  015.842: sourcing /usr/local/share/vim/vim80/filetype.vim
+031.387  000.038  000.038: sourcing /usr/local/share/vim/vim80/ftplugin.vim
+031.664  000.037  000.037: sourcing /usr/local/share/vim/vim80/indent.vim
+032.968  000.675  000.675: sourcing /usr/local/share/vim/vim80/syntax/syncolor.vim
+033.120  001.068  000.393: sourcing /usr/local/share/vim/vim80/syntax/synload.vim
+033.167  001.390  000.322: sourcing /usr/local/share/vim/vim80/syntax/syntax.vim
+033.642  000.014  000.014: sourcing /usr/local/share/vim/vim80/filetype.vim
+033.893  000.012  000.012: sourcing /usr/local/share/vim/vim80/filetype.vim
+034.132  000.010  000.010: sourcing /usr/local/share/vim/vim80/ftplugin.vim
+034.378  000.012  000.012: sourcing /usr/local/share/vim/vim80/filetype.vim
+034.614  000.011  000.011: sourcing /usr/local/share/vim/vim80/indent.vim
+034.975  028.052  007.877: sourcing $HOME/.vimrc
+034.981  000.347: sourcing vimrc file(s)
+037.664  002.486  002.486: sourcing /Users/rossdavis/.vim/plugs/tcomment_vim/plugin/tcomment.vim
+038.186  000.226  000.226: sourcing /Users/rossdavis/.vim/plugs/ctrlp.vim/autoload/ctrlp/mrufiles.vim
+038.323  000.541  000.315: sourcing /Users/rossdavis/.vim/plugs/ctrlp.vim/plugin/ctrlp.vim
+038.708  000.147  000.147: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline.vim
+038.943  000.103  000.103: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/init.vim
+039.338  000.093  000.093: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/parts.vim
+039.932  001.494  001.151: sourcing /Users/rossdavis/.vim/plugs/vim-airline/plugin/airline.vim
+040.066  000.019  000.019: sourcing /Users/rossdavis/.vim/plugs/vim-airline-themes/plugin/airline-themes.vim
+041.192  000.484  000.484: sourcing /Users/rossdavis/.vim/plugs/editorconfig-vim/plugin/editorconfig.vim
+044.683  000.176  000.176: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale.vim
+045.500  000.132  000.132: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale/toggle.vim
+045.806  001.613  001.305: sourcing /Users/rossdavis/.vim/plugs/ale/plugin/ale.vim
+046.138  000.215  000.215: sourcing /Users/rossdavis/.vim/plugs/tabular/plugin/Tabular.vim
+046.794  000.089  000.089: sourcing /Users/rossdavis/.vim/plugs/vim-gitgutter/autoload/gitgutter/highlight.vim
+047.569  001.318  001.229: sourcing /Users/rossdavis/.vim/plugs/vim-gitgutter/plugin/gitgutter.vim
+047.868  000.044  000.044: sourcing /Users/rossdavis/.vim/plugs/neocomplete.vim/plugin/neocomplete/buffer.vim
+047.948  000.040  000.040: sourcing /Users/rossdavis/.vim/plugs/neocomplete.vim/plugin/neocomplete/dictionary.vim
+048.023  000.037  000.037: sourcing /Users/rossdavis/.vim/plugs/neocomplete.vim/plugin/neocomplete/member.vim
+048.094  000.035  000.035: sourcing /Users/rossdavis/.vim/plugs/neocomplete.vim/plugin/neocomplete/tag.vim
+048.236  000.106  000.106: sourcing /Users/rossdavis/.vim/plugs/neocomplete.vim/plugin/neocomplete.vim
+048.859  000.491  000.491: sourcing /Users/rossdavis/.vim/plugs/vim-surround/plugin/surround.vim
+049.851  000.372  000.372: sourcing /Users/rossdavis/.vim/plugs/delimitmate/autoload/delimitMate.vim
+052.122  003.147  002.775: sourcing /Users/rossdavis/.vim/plugs/delimitmate/plugin/delimitMate.vim
+055.420  003.170  003.170: sourcing /Users/rossdavis/.vim/plugs/vim-fugitive/plugin/fugitive.vim
+055.858  000.321  000.321: sourcing /Users/rossdavis/.vim/plugs/vim-multiple-cursors/plugin/multiple_cursors.vim
+056.171  000.199  000.199: sourcing /Users/rossdavis/.vim/plugs/vim-tmux-navigator/plugin/tmux_navigator.vim
+056.499  000.212  000.212: sourcing /Users/rossdavis/.vim/plugs/closetag.vim/plugin/closetag.vim
+056.743  000.038  000.038: sourcing /Users/rossdavis/.vim/plugs/goyo.vim/plugin/goyo.vim
+057.113  000.015  000.015: sourcing /usr/local/share/vim/vim80/filetype.vim
+057.357  000.011  000.011: sourcing /usr/local/share/vim/vim80/ftplugin.vim
+057.596  000.011  000.011: sourcing /usr/local/share/vim/vim80/indent.vim
+060.197  000.561  000.561: sourcing /usr/local/Cellar/vim/7.4.1832/share/vim/vim80/pack/dist/opt/matchit/plugin/matchit.vim
+060.246  001.424  000.863: sourcing /usr/local/share/vim/vim80/macros/matchit.vim
+060.318  003.452  001.991: sourcing /Users/rossdavis/.vim/plugs/vim-sensible/plugin/sensible.vim
+092.466  014.482  014.482: sourcing /Users/rossdavis/.vim/plugs/vim-wakatime/plugin/wakatime.vim
+092.732  000.084  000.084: sourcing /Users/rossdavis/.vim/plugs/vim-graphql/plugin/graphql.vim
+093.681  000.163  000.163: sourcing /Users/rossdavis/.vim/plugs/nerdtree/autoload/nerdtree.vim
+095.000  000.471  000.471: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/path.vim
+095.326  000.115  000.115: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/menu_controller.vim
+095.604  000.074  000.074: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/menu_item.vim
+095.879  000.094  000.094: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/key_map.vim
+096.248  000.187  000.187: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/bookmark.vim
+096.824  000.385  000.385: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/tree_file_node.vim
+097.605  000.588  000.588: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/tree_dir_node.vim
+098.073  000.284  000.284: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/opener.vim
+098.611  000.354  000.354: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/creator.vim
+098.882  000.088  000.088: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/flag_set.vim
+099.324  000.258  000.258: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/nerdtree.vim
+099.913  000.413  000.413: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/ui.vim
+100.116  000.023  000.023: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/event.vim
+100.337  000.040  000.040: sourcing /Users/rossdavis/.vim/plugs/nerdtree/lib/nerdtree/notifier.vim
+100.915  000.382  000.382: sourcing /Users/rossdavis/.vim/plugs/nerdtree/autoload/nerdtree/ui_glue.vim
+118.434  000.090  000.090: sourcing /Users/rossdavis/.vim/plugs/nerdtree/nerdtree_plugin/exec_menuitem.vim
+118.979  000.498  000.498: sourcing /Users/rossdavis/.vim/plugs/nerdtree/nerdtree_plugin/fs_menu.vim
+120.382  001.280  001.280: sourcing /Users/rossdavis/.vim/plugs/nerdtree-git-plugin/nerdtree_plugin/git_status.vim
+120.814  000.310  000.310: sourcing /Users/rossdavis/.vim/plugs/vim-devicons/nerdtree_plugin/webdevicons.vim
+121.012  028.127  022.030: sourcing /Users/rossdavis/.vim/plugs/nerdtree/plugin/NERD_tree.vim
+123.039  001.901  001.901: sourcing /Users/rossdavis/.vim/plugs/vim-devicons/plugin/webdevicons.vim
+123.606  000.062  000.062: sourcing /usr/local/share/vim/vim80/plugin/getscriptPlugin.vim
+123.895  000.244  000.244: sourcing /usr/local/share/vim/vim80/plugin/gzip.vim
+124.153  000.215  000.215: sourcing /usr/local/share/vim/vim80/plugin/logiPat.vim
+124.209  000.014  000.014: sourcing /usr/local/share/vim/vim80/plugin/manpager.vim
+124.416  000.167  000.167: sourcing /usr/local/share/vim/vim80/plugin/matchparen.vim
+124.951  000.492  000.492: sourcing /usr/local/share/vim/vim80/plugin/netrwPlugin.vim
+125.029  000.017  000.017: sourcing /usr/local/share/vim/vim80/plugin/rrhelper.vim
+125.107  000.030  000.030: sourcing /usr/local/share/vim/vim80/plugin/spellfile.vim
+125.303  000.150  000.150: sourcing /usr/local/share/vim/vim80/plugin/tarPlugin.vim
+125.449  000.089  000.089: sourcing /usr/local/share/vim/vim80/plugin/tohtml.vim
+125.652  000.156  000.156: sourcing /usr/local/share/vim/vim80/plugin/vimballPlugin.vim
+125.887  000.176  000.176: sourcing /usr/local/share/vim/vim80/plugin/zipPlugin.vim
+125.897  025.048: loading plugins
+125.970  000.073: loading packages
+126.244  000.054  000.054: sourcing /Users/rossdavis/.vim/plugs/ale/after/plugin/ale.vim
+126.896  000.267  000.267: sourcing /Users/rossdavis/.vim/plugs/tabular/autoload/tabular.vim
+128.485  002.104  001.837: sourcing /Users/rossdavis/.vim/plugs/tabular/after/plugin/TabularMaps.vim
+128.534  000.406: loading after plugins
+128.546  000.012: inits 3
+130.366  001.820: reading viminfo
+130.418  000.052: setting raw mode
+130.423  000.005: start termcap
+130.520  000.097: clearing screen
+133.020  000.300  000.300: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions.vim
+133.244  000.064  000.064: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/quickfix.vim
+133.466  000.048  000.048: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/netrw.vim
+133.626  000.038  000.038: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/term.vim
+133.838  000.087  000.087: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/ctrlp.vim
+134.086  000.098  000.098: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/hunks.vim
+134.515  000.265  000.265: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/branch.vim
+134.854  000.085  000.085: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/ale.vim
+135.249  000.147  000.147: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/whitespace.vim
+135.560  000.063  000.063: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/wordcount.vim
+135.902  000.196  000.196: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/tabline.vim
+136.095  000.066  000.066: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/tabline/autoshow.vim
+136.386  000.120  000.120: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/tabline/tabs.vim
+136.737  000.211  000.211: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/tabline/buffers.vim
+136.988  000.039  000.039: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/keymap.vim
+140.036  000.083  000.083: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/section.vim
+140.441  000.222  000.222: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/highlighter.vim
+142.925  000.095  000.095: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/themes.vim
+143.240  000.624  000.529: sourcing /Users/rossdavis/.vim/plugs/vim-airline-themes/autoload/airline/themes/base16color.vim
+151.805  000.135  000.135: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/util.vim
+156.068  000.182  000.182: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/builder.vim
+156.559  000.114  000.114: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/default.vim
+183.682  000.254  000.254: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale/util.vim
+184.353  000.363  000.363: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale/linter.vim
+184.476  050.152: opening buffers
+184.682  000.053  000.053: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale/pattern_options.vim
+184.921  000.081  000.081: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale/events.vim
+185.385  000.231  000.231: sourcing /Users/rossdavis/.vim/plugs/vim-gitgutter/autoload/gitgutter.vim
+185.846  000.265  000.265: sourcing /Users/rossdavis/.vim/plugs/vim-gitgutter/autoload/gitgutter/utility.vim
+186.232  000.141  000.141: sourcing /Users/rossdavis/.vim/plugs/vim-gitgutter/autoload/gitgutter/hunk.vim
+190.314  005.067: BufEnter autocommands
+190.318  000.004: editing files in windows
+192.293  001.975: VimEnter autocommands
+192.299  000.006: before starting main loop
+192.590  000.120  000.120: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale/cursor.vim
+193.212  000.195  000.195: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/tabline/ctrlspace.vim
+193.619  000.093  000.093: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/tabline/buflist.vim
+194.063  000.045  000.045: sourcing /Users/rossdavis/.vim/plugs/vim-devicons/autoload/airline/extensions/tabline/formatters/webdevicons.vim
+194.235  000.065  000.065: sourcing /Users/rossdavis/.vim/plugs/vim-airline/autoload/airline/extensions/tabline/formatters/default.vim
+207.834  000.112  000.112: sourcing /Users/rossdavis/.vim/plugs/ale/autoload/ale/statusline.vim
+209.579  016.650: first screen update
+209.581  000.002: --- VIM STARTED ---
