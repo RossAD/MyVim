@@ -133,7 +133,7 @@ set smartcase
 set ignorecase
 
 filetype on
-filetype plugin on
+" filetype plugin on
 filetype plugin indent on
 
 if $TMUX == ''
@@ -145,7 +145,7 @@ set number
 " Indentation
 set expandtab     " use spaces instead of tabs
 set autoindent    " autoindent based on the line above, works most of the time
-set smartindent   " smarter indent for c-like languages
+" set smartindent   " smarter indent for c-like languages
 set shiftwidth=2  " when reading, tabs are 2 spaces
 set softtabstop=2 " in insert mode, tabs are 2 spaces
 
@@ -288,10 +288,11 @@ endfunction
 " ALE settings
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
-let g:ale_linters = {'javascript': ['eslint'],'jsx': ['eslint']} 
+let g:ale_linters = {'javascript': ['eslint'],'jsx': ['eslint'], 'python': ['pylint']} 
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   
 \}
 
 " Vim Splits: Window nav Keymappings
