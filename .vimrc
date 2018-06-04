@@ -22,6 +22,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'quramy/tsuquyomi'
 " Python Support
 Plug 'davidhalter/jedi-vim'
+" Python docstring
+Plug 'heavenshell/vim-pydocstring'
+" Python debugging
+Plug 'vim-vdebug/vdebug'
 " Better JSON support
 Plug 'elzr/vim-json'
 " Editorconfig support
@@ -63,7 +67,7 @@ Plug 'wakatime/vim-wakatime'
 " Graphql file detection
 Plug 'jparise/vim-graphql'
 " NERDTree File Explorer
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " NERDTree Git Plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Vim Icons
