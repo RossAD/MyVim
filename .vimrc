@@ -26,6 +26,10 @@ Plug 'davidhalter/jedi-vim'
 Plug 'heavenshell/vim-pydocstring'
 " Python debugging
 Plug 'vim-vdebug/vdebug'
+" Python IDE
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" PHP Syntax
+Plug 'stanangeloff/php.vim'
 " Better JSON support
 Plug 'elzr/vim-json'
 " Editorconfig support
@@ -104,8 +108,8 @@ set nobackup
 set writebackup
 set noswapfile
 
-" no lines longer than 80 cols
-autocmd FileType javascript setlocal textwidth=80 formatoptions+=t
+" no lines longer than 120 cols
+autocmd FileType javascript setlocal textwidth=120 formatoptions+=t
 
 " make backspace delete sensibly
 set backspace=indent,eol,start
@@ -120,6 +124,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Python Configuration
 let python_highlight_all = 1
+" autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+let g:pymode_python = 'python3'
 
 " tag completion
 :iabbrev </ </<c-x><c-o>
@@ -303,13 +309,14 @@ autocmd FileType php let b:vcm_tab_complete = 'php'
 " endfunction
 
 " ALE settings
+let g:ale_python_pylint_executable = 'python3'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 1
-let g:ale_linters = {'javascript': ['eslint'],'jsx': ['eslint'], 'python': ['pylint']} 
+let g:ale_linters = {'javascript': ['eslint'],'jsx': ['eslint'], 'python': ['pylint', 'flake8']} 
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
-\   
+\   'python' : ['autopep8']  
 \}
 
 " Vim Splits: Window nav Keymappings
