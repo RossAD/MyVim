@@ -1,198 +1,168 @@
+" Python IDE vimrc file
 set nocompatible
+set encoding=utf-8
+filetype off
+
 call plug#begin('~/.vim/plugs/')
 " Load Plugins here
 
-" Commenting Plugin
-Plug 'tomtom/tcomment_vim'
-" Fuzzy search
-Plug 'ctrlpvim/ctrlp.vim'
-" Airline status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Polyglot syntax highlighting
-" Plug 'sheerun/vim-polyglot'
+" Set of sensible defaults
+Plug 'tpope/vim-sensible'
+" A.L.E. Aysnc Linting
+Plug 'w0rp/ale'
+" Javascript language support including Angular
+Plug 'othree/javascript-libraries-syntax.vim'
 " More full-featured JS syntax support
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
-" Javascript language support including Angular
-Plug 'othree/javascript-libraries-syntax.vim'
-" TypeScript Support
-Plug 'leafgarland/typescript-vim'
-Plug 'quramy/tsuquyomi'
-" Python Support
-Plug 'davidhalter/jedi-vim'
-" Python docstring
-Plug 'heavenshell/vim-pydocstring'
-" Python debugging
-Plug 'vim-vdebug/vdebug'
-" Python IDE
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-" PHP Syntax
-Plug 'stanangeloff/php.vim'
-" Better JSON support
-Plug 'elzr/vim-json'
-" Editorconfig support
-Plug 'editorconfig/editorconfig-vim'
-" A.L.E. Aysnc Linting
-Plug 'w0rp/ale'
-" Tabularize alignment
-Plug 'godlygeek/tabular'
-" Gutter Git status
-Plug 'airblade/vim-gitgutter'
-" Neocomplete completion engine
-" Plug 'shougo/neocomplete.vim'
+" Polyglot syntax highlighting
+Plug 'sheerun/vim-polyglot'
+" Commenting Plugin
+Plug 'tomtom/tcomment_vim'
+" Code folding helper
+Plug 'tmhedberg/SimpylFold'
+" Python indentation helper
+Plug 'vim-scripts/indentpython.vim'
+" Additional Python Syntax
+Plug 'vim-python/python-syntax'
+" Auto-completion
+" Plug 'Valloric/YouCompleteMe'
 " VimCompletesMe
 Plug 'ajh17/vimcompletesme'
 " Surround, [],{},"",'',etc
 Plug 'tpope/vim-surround'
 " Plugin for Auto-complete for quotes, parenthesis, brackets
 Plug 'raimondi/delimitmate'
-" Git wrapper
-Plug 'tpope/vim-fugitive'
-" Bitbucket support form vim-fugitive
-Plug 'tommcdo/vim-fubitive'
-" Plugin for multiple cursors
-Plug 'terryma/vim-multiple-cursors'
-" Plugin for tmux-vim intigration
-Plug 'christoomey/vim-tmux-navigator'
 " Plugin for HTML/XML tag completion 
 Plug 'docunext/closetag.vim'
-" Plugin writing enviroment / MD
-Plug 'junegunn/goyo.vim'
 " Plugin repeatability
 Plug 'tpope/vim-repeat'
-" Set of sensible defaults
-Plug 'tpope/vim-sensible'
-" Database Plugin
-Plug 'tpope/vim-dadbod'
-" Code tracking
-Plug 'wakatime/vim-wakatime'
-" Graphql file detection
-Plug 'jparise/vim-graphql'
-" NERDTree File Explorer
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" NERDTree Git Plugin
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" Vim Icons
-Plug 'ryanoasis/vim-devicons'
-" Nerdtree Icon Highlighting
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Grep for vim
+" Syntax highlighting
+" Plug 'vim-syntastic/syntastic'
+" Python Support
+Plug 'davidhalter/jedi-vim'
+" Python docstring
+Plug 'heavenshell/vim-pydocstring'
+" Pep 8 Checking
+Plug 'nvie/vim-flake8'
+" Nerdtree file tree browser
+Plug 'scrooloose/nerdtree'
+" Fuzzy Search
+Plug 'kien/ctrlp.vim'
+" Git integration
+Plug 'tpope/vim-fugitive'
+" Airline status line
+Plug 'vim-airline/vim-airline'
+" Tabularize alignment
+Plug 'godlygeek/tabular'
+" Gutter Git status
+Plug 'airblade/vim-gitgutter'
+" Plugin for multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+" Tabularize alignment
+Plug 'godlygeek/tabular'
+" Searching with grep
 Plug 'vim-scripts/grep.vim'
+" Color Scheme
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
 " General configuration options
-
-" Clear any autocmd out
-" augroup myvim
-"   autocmd!
-" augroup
-set encoding=utf8
-set guifont=DroidSansMono_Nerd_Font:h11
+let mapleader = ','
+set nu
+set clipboard=unnamed
 set spelllang=en
 set spellfile=$HOME/.vim/spell/en.utf-8.add
-
-" reload files changed outside vim
-set autoread
-
-if !exists("g:syntax_on")
-  syntax enable
-endif
-
-let mapleader = ','
-
-" remove the .ext~ files, but not the swapfiles
-set nobackup
-set writebackup
-set noswapfile
-
-" no lines longer than 120 cols
-autocmd FileType javascript setlocal textwidth=120 formatoptions+=t
-
-" make backspace delete sensibly
-set backspace=indent,eol,start
-
-" Turn on autocomplete
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType sql setlocal omnifunc=
-
-" Python Configuration
-let python_highlight_all = 1
-" autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
-let g:pymode_python = 'python3'
-
-" tag completion
-:iabbrev </ </<c-x><c-o>
-
-" Don't unload buffers when abandond, keep in the backround
-set hidden
-
-" On file types...
-"   .md files are markdown files
-autocmd BufNewFile,BufRead *.md setlocal ft=markdown
-"   .less files use less syntax
-autocmd BufNewFile,BufRead *.less setlocal ft=less
-
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
 " select all mapping
 noremap <leader>a ggVG
+" fzf binding
+set rtp+=/usr/local/opt/fzf
+" json formatting
+nmap =j :%!python -m json.tool<CR>
+" set vim to reletive directory of file
+set autochdir
+" make backspace delete sensibly
+set backspace=indent,eol,start
+" tag completion
+:iabbrev </ </<c-x><c-o>
+" select all mapping
+noremap <leader>a ggVG
+" reloads the .vimrc -- making all changes active
+map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
+" Current line marker
+:set number
+:set cursorline
+:hi cursorline cterm=none
+:hi cursorlinenr ctermfg=green
 
-set smartcase
-set ignorecase
+" Setting splits
+set splitbelow
+set splitright
+" Vim Splits: Window nav Keymappings
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-filetype on
-" filetype plugin on
-filetype plugin indent on
-
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
-
-set number
-
-" Indentation
-set expandtab     " use spaces instead of tabs
-set autoindent    " autoindent based on the line above, works most of the time
-" set smartindent   " smarter indent for c-like languages
-set shiftwidth=2  " when reading, tabs are 2 spaces
-set softtabstop=2 " in insert mode, tabs are 2 spaces
-
-" absolute width of netrw window
-let g:netrw_winsize = -28
-
-" tree-view
-let g:netrw_liststyle = 3
-
-" sort is affecting only: directories on the top, files below
-let g:netrw_sort_sequence = '[\/]$,*'
-
-" open file in a new tab
-let g:netrw_browse_split = 3
+" Tabularize settings
+vnoremap <silent> <Leader>cee :Tabularize /=<CR>
+vnoremap <silent> <Leader>cet :Tabularize /#<CR>
+vnoremap <silent> <Leader>ce :Tabularize /
 
 " TComment mapping
 noremap <silent> <Leader>cc :TComment<CR>
 
-" CtrlP Mappings
-" Leader F for file related mappings (open, browse...)
-nnoremap <silent> <Leader>f :CtrlP<CR>
-nnoremap <silent> <Leader>fm :CtrlPMRU<CR>
+" Enable Folding
+set foldmethod=indent
+set foldlevel=99
 
-" Ctrl B buffer related mappings
-nnoremap <silent> <Leader>b :CtrlPBuffer<CR> "cycle between buffer"
-nnoremap <silent> <Leader>bb :bn<CR> "create (N)ew buffer"
-nnoremap <silent> <Leader>bd :bdelete<CR> "(D)elete current buffer"
-nnoremap <silent> <Leader>bu :bunload<CR> "(U)nload current buffer"
-nnoremap <silent> <Leader>bl :setnomodifiable<CR> "(L)ock the current buffer"
+" Enable Folding with spacebar
+nnoremap <space> za
 
-" reloads the .vimrc -- making all changes active
-map <silent> <Leader>v :source ~/.vimrc<CR>:PlugInstall<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
+let g:SimplyFold_docstring_preview=1
+
+" Other indentation
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab     " use spaces instead of tabs
+set autoindent    " autoindent based on the line above, works most of the time
+
+" Flag unwanted whitespace
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"python with virtualenv support
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF
+
+" Python highlighting
+let g:pymode_python = 'python3'
+let python_highlight_all=1
+syntax on
+let g:jedi#force_py_version=3
+let g:jedi#auto_close_doc = 0
+
+" tag completion
+:iabbrev </ </<c-x><c-o>
+" Tag completion options
+
+" filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+" Shortcut for closing tags, default is '>'
+
+" Vim-JSX settings
+let g:jsx_ext_required = 0
 
 " Statusline General
 set laststatus=2
@@ -200,7 +170,7 @@ set noshowmode
 
 " Airline Configuration
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16color'
+" let g:airline_theme='base16color'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -215,28 +185,10 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
-" Tabularize settings
-vnoremap <silent> <Leader>cee :Tabularize /=<CR>
-vnoremap <silent> <Leader>cet :Tabularize /#<CR>
-vnoremap <silent> <Leader>ce :Tabularize /
-
-" Vim-JSX settings
-let g:jsx_ext_required = 0
-
-" set unix line endings
-set fileformat=unix
-" when reading files try unix line endings then dos, also use unix for new
-" buffers
-set fileformats=unix,dos
-
-" save up to 100 marks, enable capital marks
-set viminfo='100,f1
-
-" suggestion for normal mode commands
-set wildmode=list:longest
-
-" keep the cursor visible within 3 lines when scrolling
-set scrolloff=3
+" NERDTree
+" autocmd vimenter * NERDTree
+map <C-d> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Vim Complete Me Config
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
@@ -245,68 +197,15 @@ autocmd FileType python let b:vcm_tab_complete = 'python'
 autocmd FileType java let b:vcm_tab_complete = 'java'
 autocmd FileType php let b:vcm_tab_complete = 'php'
 
+" suggestion for normal mode commands
+set wildmode=list:longest
 
-" Neocomplete settings
-" " Disable AutoComplPop.
-" let g:acp_enableAtStartup = 0
-" " Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
-" " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-"
-" " Define dictionary.
-" let g:neocomplete#sources#dictionary#dictionaries = {
-"     \ 'default' : '',
-"     \ 'vimshell' : $HOME.'/.vimshell_hist',
-"     \ 'scheme' : $HOME.'/.gosh_completions'
-"     \ }
-"
-" " Define keyword.
-" if !exists('g:neocomplete#keyword_patterns')
-"     let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" " Enable heavy omni-completion
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
-"
-" " Plugin key-mappings.
-" inoremap <expr><C-g>     neocomplete#undo_completion()
-" inoremap <expr><C-l>     neocomplete#complete_common_string()
-"
-" " Recommended key-mappings.
-" " <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-"   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-"   " For no inserting <CR> key.
-"   "return pumvisible() ? "\<C-y>" : "\<CR>"
-" endfunction
-" " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" " <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" " inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" " Close popup by <Space>.
-" "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-"
-" " Multiple cursor options
-" " Called once right before you start selecting multiple cursors
-" function! Multiple_cursors_before()
-"   if exists(':NeoCompleteLock')==2
-"     exe 'NeoCompleteLock'
-"   endif
-" endfunction
-"
-" " Called once only when the multiple selection is canceled (default <Esc>)
-" function! Multiple_cursors_after()
-"   if exists(':NeoCompleteUnlock')==2
-"     exe 'NeoCompleteUnlock'
-"   endif
-" endfunction
+" Turn on autocomplete
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " ALE settings
 let g:ale_python_pylint_executable = 'python3'
@@ -318,21 +217,18 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'python' : ['autopep8']  
 \}
+let g:ale_cache_executable_check_failures = 1
 
-" Vim Splits: Window nav Keymappings
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-set splitbelow
-set splitright
-
-" Current line marker
-:set number
-:set cursorline
-:hi cursorline cterm=none
-:hi cursorlinenr ctermfg=green
+" Syntastic Settings
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 " Tag completion options
 
@@ -342,14 +238,5 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 " Shortcut for closing tags, default is '>'
 "
 let g:closetag_shortcut = '>'
-
-" Javascript Syntax Libraries
-let g:used_javascript_libs = 'angularjs,d3'
-
-" NERDTree
-" autocmd vimenter * NERDTree
-map <C-d> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" TypeScript
-let g:tsuquyomi_completion_detail = 1
+" tag completion
+:iabbrev </ </<c-x><c-o>
