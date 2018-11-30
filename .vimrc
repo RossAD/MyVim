@@ -1,7 +1,6 @@
 " Python IDE vimrc file
 set nocompatible
 set encoding=utf-8
-filetype off
 
 call plug#begin('~/.vim/plugs/')
 " Load Plugins here
@@ -16,6 +15,10 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
+" Better JSON support
+Plug 'elzr/vim-json'
+" Go Language Plugin
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Polyglot syntax highlighting
 Plug 'sheerun/vim-polyglot'
 " Commenting Plugin
@@ -27,9 +30,12 @@ Plug 'vim-scripts/indentpython.vim'
 " Additional Python Syntax
 Plug 'vim-python/python-syntax'
 " Auto-completion
+" TERN for vim
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 " Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 " VimCompletesMe
-Plug 'ajh17/vimcompletesme'
+" Plug 'ajh17/vimcompletesme'
 " Surround, [],{},"",'',etc
 Plug 'tpope/vim-surround'
 " Plugin for Auto-complete for quotes, parenthesis, brackets
@@ -44,6 +50,8 @@ Plug 'tpope/vim-repeat'
 Plug 'davidhalter/jedi-vim'
 " Python docstring
 Plug 'heavenshell/vim-pydocstring'
+" Javascript docstring
+Plug 'heavenshell/vim-jsdoc'
 " Pep 8 Checking
 Plug 'nvie/vim-flake8'
 " Nerdtree file tree browser
@@ -76,6 +84,14 @@ set clipboard=unnamed
 set spelllang=en
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+" Vim OmniComplete
+set omnifunc=syntaxcomplete#Complete
+set redrawtime=10000
+
+" remove the .ext~ files, but not the swapfiles
+set nobackup
+set writebackup
+set noswapfile
 
 " select all mapping
 noremap <leader>a ggVG
@@ -126,11 +142,18 @@ nnoremap <space> za
 let g:SimplyFold_docstring_preview=1
 
 " Other indentation
-set tabstop=2
+set expandtab     " use spaces instead of tabs
 set softtabstop=2
 set shiftwidth=2
-set expandtab     " use spaces instead of tabs
 set autoindent    " autoindent based on the line above, works most of the time
+" set smartindent
+
+set smartcase
+set ignorecase
+
+filetype on
+" filetype plugin on
+filetype plugin indent on
 
 " Flag unwanted whitespace
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -191,11 +214,11 @@ map <C-d> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Vim Complete Me Config
-autocmd FileType vim let b:vcm_tab_complete = 'vim'
-autocmd FileType javascript let b:vcm_tab_complete = 'javascript'
-autocmd FileType python let b:vcm_tab_complete = 'python'
-autocmd FileType java let b:vcm_tab_complete = 'java'
-autocmd FileType php let b:vcm_tab_complete = 'php'
+" autocmd FileType vim let b:vcm_tab_complete = 'vim'
+" autocmd FileType javascript let b:vcm_tab_complete = 'javascript'
+" autocmd FileType python let b:vcm_tab_complete = 'python'
+" autocmd FileType java let b:vcm_tab_complete = 'java'
+" autocmd FileType php let b:vcm_tab_complete = 'php'
 
 " suggestion for normal mode commands
 set wildmode=list:longest
@@ -214,9 +237,9 @@ let g:ale_sign_column_always = 1
 let g:ale_linters = {'javascript': ['eslint'],'jsx': ['eslint'], 'python': ['pylint', 'flake8']} 
 let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'python' : ['autopep8']  
-\}
+      \   'javascript': ['eslint'],
+      \   'python' : ['autopep8']  
+      \}
 let g:ale_cache_executable_check_failures = 1
 
 " Syntastic Settings
@@ -240,3 +263,10 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_shortcut = '>'
 " tag completion
 :iabbrev </ </<c-x><c-o>
+
+" JSDOC config
+let g:jsdoc_enable_es6 = 1
+nmap <silent> <C-l> <Plug>(jsdoc)
+
+" GoLang Options
+let g:polyglot_disabled = ['go']
